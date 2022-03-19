@@ -26,15 +26,11 @@ function relodWindow() {
     location.reload();
 }
 
-function anim(node) {
-    node.classList.toggle(`op0`);
-}
-
 // =======================================
 
 // `timer` accepts a count, and the element
 // to apply the count to
-function timer(count, el, animId) {
+function timer(count, el) {
     // Return a promise that basically says:
     // once I'm done doing this work, resolve,
     // and then the event queue can
@@ -46,8 +42,6 @@ function timer(count, el, animId) {
         function loop(n = 0) {
             // If our current `n` value is <= count
             if (n <= count) {
-                anim(animId);
-
                 // Set the content of the element
                 el.textContent = n;
 
@@ -65,16 +59,11 @@ function timer(count, el, animId) {
     });
 }
 
-btn.addEventListener(`click`, () => {
-    controlSpeed2.setAttribute();
-    async function main() {
-        await timer(3, count, t1);
-        await timer(3, count2, t2);
-        await timer(4, count3, t3);
-        showPopup();
-    }
+async function main() {
+    await timer(33, count);
+    await timer(33, count2);
+    await timer(34, count3);
+    showPopup();
+}
 
-    main();
-});
-
-// And now we just await each resolved promise
+main();
